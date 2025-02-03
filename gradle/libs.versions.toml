@@ -1,0 +1,53 @@
+[versions]
+# plugins
+kotlin = "2.1.10" # https://github.com/JetBrains/kotlin
+kotlinter = "5.0.1" # https://github.com/jeremymailen/kotlinter-gradle
+
+# ktor
+ktor = "3.0.3" # https://github.com/ktorio/ktor
+
+# kotlinx
+kotlinx-coroutines = "1.10.1" # https://github.com/Kotlin/kotlinx.coroutines
+
+# kotest
+kotest = "6.0.0.M1" # https://github.com/kotest/kotest
+
+# jedis
+jedis = "5.2.0" # https://github.com/redis/jedis
+
+[plugins]
+kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+kotlinter = { id = "org.jmailen.kotlinter", version.ref = "kotlinter" }
+
+[libraries]
+# ktor
+ktor-network = { module = "io.ktor:ktor-network", version.ref = "ktor" }
+
+# kotlinx
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
+
+# kotest
+kotest-runner-junit5 = { module = "io.kotest:kotest-runner-junit5", version.ref = "kotest" }
+kotest-assertions-core = { module = "io.kotest:kotest-assertions-core", version.ref = "kotest" }
+
+# jedis
+jedis = { module = "redis.clients:jedis", version.ref = "jedis" }
+
+[bundles]
+
+ktor = [
+  "ktor-network",
+]
+
+kotlinx = [
+  "kotlinx-coroutines",
+]
+
+kotest = [
+  "kotest-runner-junit5",
+  "kotest-assertions-core",
+]
+
+jedis = [
+  "jedis",
+]
